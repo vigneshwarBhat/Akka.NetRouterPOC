@@ -1,0 +1,45 @@
+version: '3.4'
+
+services:
+  cartapi:
+    image: cartapi:0.0.7
+    hostname: cart.web
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - CLUSTER__IP=cart.web
+      - CLUSTER__PORT=4055
+      - CLUSTER__SEEDS__0=akka.tcp://cart@cart.web:4055
+      - CLUSTER__STARTUPMETHOD=SeedNodes
+      - CLUSTER__READINESSPORT=11001
+      - CLUSTER__PBMPORT=9110
+      - CLUSTER__ISDOCKER=true
+    ports:
+      - "8080:80"
+      - "9445:9445"
+      - "9110:9110"
+
+  cartitempoolrouteehost:
+    image: cartitempoolrouteehost:0.0.7
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - CLUSTER__PORT=4055
+      - CLUSTER__SEEDS__0=akka.tcp://cart@cart.web:4055
+      - CLUSTER__STARTUPMETHOD=SeedNodes
+      - CLUSTER__READINESSPORT=11001
+      - CLUSTER__PBMPORT=9110
+      - CLUSTER__ISDOCKER=true
+    depends_on:
+      - cartapi
+
+  cartpoolrouteehost:
+    image: cartpoolrouteehost:0.0.7
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - CLUSTER__PORT=4055
+      - CLUSTER__SEEDS__0=akka.tcp://cart@cart.web:4055
+      - CLUSTER__STARTUPMETHOD=SeedNodes
+      - CLUSTER__READINESSPORT=11001
+      - CLUSTER__PBMPORT=9110
+      - CLUSTER__ISDOCKER=true
+    depends_on:
+      - cartapi

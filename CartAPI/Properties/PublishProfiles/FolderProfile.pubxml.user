@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\vbhat\source\repos\Akka.NetRouterPOC\CartAPI\bin\Release\net6.0\publish\</_PublishTargetUrl>
+    <History>True|2023-07-05T12:58:07.5720571Z;True|2023-06-30T22:57:37.1339300+05:30;True|2023-06-26T14:35:21.3294906+05:30;True|2023-06-26T12:08:27.9162858+05:30;True|2023-06-26T11:31:14.5649469+05:30;True|2023-06-20T18:09:50.2686957+05:30;True|2023-06-20T17:42:23.4927409+05:30;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

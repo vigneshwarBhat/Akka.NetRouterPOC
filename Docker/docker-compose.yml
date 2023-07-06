@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  cartapi:
+    build:
+      context: .
+      dockerfile: CartAPI/Dockerfile
+  cartitempoolrouteehost:
+    build:
+      context: .
+      dockerfile: CartItemPoolRouteeHost/Dockerfile
+  cartpoolrouteehost:
+    build:
+      context: .
+      dockerfile: CartPoolRouteeHost/Dockerfile
+
